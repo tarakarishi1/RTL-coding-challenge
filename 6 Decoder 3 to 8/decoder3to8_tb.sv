@@ -7,10 +7,17 @@ module decoder3to8_tb;
     initial begin
         $display("Enable | Input |  output");
         $display("----------------------------");
-        repeat(20) begin
-        en = $urandom_range(0,1);
+        
+        repeat(2) begin
+        en = 1'b0;
         in = $urandom_range(0,7);
+            #1;
+            $display("%b      | %b   |  %b", en, in, out);
+        end
 
+        repeat(20) begin
+        en = 1'b1;
+        in = $urandom_range(0,7);
             #1;
             $display("%b      | %b   |  %b", en, in, out);
         end
